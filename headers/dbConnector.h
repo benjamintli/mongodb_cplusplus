@@ -25,6 +25,7 @@ public:
     dbConnector(const std::string dbName, const std::string collection);
     std::vector<std::string> queryDB(const std::string& jsonQuery);
     void insertDB(const std::string& jsonInsertion);
+    void deleteDB(const std::string& jsonDeletion);
 };
 
 

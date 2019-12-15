@@ -37,3 +37,10 @@ void dbConnector::insertDB(const std::string& jsonInsertion) {
     coll.insert_one(bsoncxx::from_json(jsonInsertion));
 }
 
+void dbConnector::deleteDB(const std::string &jsonDeletion) {
+    client conn{mongocxx::uri {this->uri}};
+    database db = conn[this->dbName];
+    mongocxx::collection coll = db[this->collection];
+    coll.delete_one(bsoncxx::from_json(jsonDeletion));
+}
+
